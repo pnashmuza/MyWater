@@ -12,14 +12,23 @@ import CSV
 class ParseTableViewController: UITableViewController {
     
     static var allRecordings = [WaterRecording]()
-    private var day30Recordings: [WaterRecording]!
+    private var day30Recordings: [WaterRecording] = []
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        ParseTableViewController.allRecordings = getAllRecords()
-        day30Recordings = getRecordsForManaagedObject(id: 81968801)
-        self.title = day30Recordings.last?.GetShortDate()
+        
+        navigationItem.showLoading()
+        DispatchQueue.global().async {
+            ParseTableViewController.allRecordings = self.getAllRecords()
+            self.day30Recordings = self.getRecordsForManaagedObject(id: 81968801)
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.title = self.day30Recordings.last?.GetShortDate()
+                self.navigationItem.stopLoading()
+            }
+        }
     }
     
     
@@ -71,11 +80,18 @@ class ParseTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 1
+        return 3
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        200
+        if indexPath.row == 0{
+            return 40
+        }else if indexPath.row == 1{
+            return 200
+        }
+        else {
+            return 200
+        }
     }
     
     private let removableTag = 94827
@@ -84,16 +100,16 @@ class ParseTableViewController: UITableViewController {
         let cellPadding : CGFloat = 20.0
         let paddingFactor = CGFloat(1.00)
         
-        let cell = UITableViewCell()
+        var cell = UITableViewCell()
         
         
-        if indexPath.row == 0 {
+        if indexPath.row == 1 {
             let title = UILabel(frame: CGRect(x: 0, y: (cellPadding * paddingFactor), width: cell.contentView.frame.size.width, height: 20.0))
             title.font = .boldSystemFont(ofSize: 14)
             title.textColor = .systemTeal
             title.autoresizingMask = [.flexibleWidth]
             title.textAlignment = .center
-            title.text = "Morning usage"
+            title.text = "Today Morning usage:"
             title.tag = removableTag
             cell.contentView.addSubview(title)
         
@@ -108,6 +124,9 @@ class ParseTableViewController: UITableViewController {
             cell.contentView.addSubview(barGraph)
             cell.accessoryType = .none
         }
+        else if indexPath.row == 2 {
+            cell = tableView.dequeueReusableCell(withIdentifier: "blue") ?? UITableViewCell()
+        }
         
         return cell
     }
@@ -118,7 +137,7 @@ class ParseTableViewController: UITableViewController {
     {
         //chart
         let dayHoursLineChart = PVMLineGraphChartView()
-        
+        dayHoursLineChart.noDataText = "Loading..."
         //datasource
         _dayHoursLineChartDataSource = DayHoursDataSource(recordings: day30Recordings)
         dayHoursLineChart.dataSource = _dayHoursLineChartDataSource

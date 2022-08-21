@@ -20,6 +20,8 @@ public struct WaterRecording : Decodable
     
     private var DateObj: Date?
     
+    
+    
     init(_ time: String, _ objectid: Int, _ typem: String, _ series: String, _ unit: String, _ value: Int)
     {
         self.time = time

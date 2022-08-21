@@ -19,6 +19,7 @@ class ParseTableViewController: UITableViewController {
         super.viewDidLoad()
         ParseTableViewController.allRecordings = getAllRecords()
         day30Recordings = getRecordsForManaagedObject(id: 81968801)
+        self.title = day30Recordings.last?.GetShortDate()
     }
     
     

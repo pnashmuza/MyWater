@@ -37,11 +37,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgh-ZF-CmW">
-                                <rect key="frame" x="40" y="409" width="334" height="33.5"/>
+                                <rect key="frame" x="40" y="409" width="334" height="34"/>
                                 <color key="backgroundColor" red="0.95175462960000001" green="0.42553624509999999" blue="0.0044783977790000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="View my Morning Usage">
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="16"/>
+                                <buttonConfiguration key="configuration" style="plain" title="View my Morning Usage 📈 ">
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -54,6 +54,26 @@
                                     <constraint firstAttribute="height" constant="128" id="fbT-yd-Sxx"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVN-gS-bBJ">
+                                <rect key="frame" x="40" y="477" width="334" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.95175462960000001" green="0.42553624509999999" blue="0.0044783977790000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Compete with friends">
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CNf-3J-yaz">
+                                <rect key="frame" x="40" y="548" width="334" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.95175462960000001" green="0.42553624509999999" blue="0.0044783977790000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Reduce usage 💦">
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.076734341679999998" green="0.60548609499999995" blue="0.7998909354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -75,7 +95,7 @@
             </objects>
             <point key="canvasLocation" x="526" y="159"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Parse Table View Controller-->
         <scene sceneID="64e-7B-mpj">
             <objects>
                 <tableViewController id="ToN-Gn-moa" customClass="ParseTableViewController" customModule="MyWater" customModuleProvider="target" sceneMemberID="viewController">
@@ -98,7 +118,7 @@
                             <outlet property="delegate" destination="ToN-Gn-moa" id="4yJ-X3-vlP"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="UN2-FE-bwW"/>
+                    <navigationItem key="navigationItem" id="UN2-FE-bwW"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rDd-1c-8Cs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

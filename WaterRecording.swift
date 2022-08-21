@@ -44,6 +44,13 @@ public struct WaterRecording : Decodable
             return WaterRecording.formatter.string(from: safeDate)
         }
         return ""
-
+    }
+    
+    public func GetShortDate()->String{
+        if let safeDate = self.DateObj{
+            WaterRecording.formatter.dateFormat = " dd/MMM/yyyy"
+            return WaterRecording.formatter.string(from: safeDate)
+        }
+        return ""
     }
 }
